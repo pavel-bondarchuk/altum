@@ -1,0 +1,566 @@
+.collection {
+  .inner {
+    padding: rem(40 0);
+    .topBar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: rem(20);
+      @include desktop {
+        flex-direction: row;
+      }
+      > .btn {
+        width: 100%;
+        margin-bottom: rem(10);
+        @include desktop {
+          margin-bottom: 0;
+          width: auto;
+          margin-right: rem(10);
+        }
+      }
+      .viewMode {
+        margin-left: auto;
+        display: none;
+        @include tablet {
+          display: block;
+        }
+      }
+    }
+    .toolbar {
+      display: flex;
+      align-items: center;
+      margin-bottom: rem(28);
+      flex-direction: column;
+      @include tablet {
+        flex-direction: row;
+      }
+      .input {
+        width: 100%;
+        max-width: rem(740);
+        font-size: rem(12);
+        @include placeholder {
+          color: $gray;
+        }
+      }
+      .select {
+        font-size: rem(14);
+        width: 100%;
+        margin-top: rem(8);
+        min-width: rem(140);
+        @include tablet {
+          margin-left: rem(20);
+          width: auto;
+          margin-top: 0;
+        }
+      }
+    }
+    .artifacts {
+      padding: rem(20);
+      background: $white;
+      border-radius: rem(6);
+      @include tablet {
+        padding: rem(20);
+        &[data-mode="flip"] {
+          padding: rem(40 80);
+          .toolbar,
+          .pagination,
+          .artifactItems {
+            display: none;
+          }
+          .artifactItemsSlider {
+            display: block;
+          }
+        }
+      }
+      @include desktop {
+        padding: rem(20 80 40);
+        &[data-mode="flip"] {
+          padding: rem(40 100 40 80);
+        }
+      }
+    }
+  }
+}
+
+.artifactItems {
+  display: flex;
+  flex-wrap: wrap;
+  margin: rem(-15);
+  @include tablet {
+    .artifacts[data-mode="list"] & {
+      margin: 0;
+    }
+  }
+  .item {
+    padding: rem(20);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    border-color: $border-color;
+    background: $white;
+    @include tablet {
+      .artifacts[data-mode="list"] & {
+        padding: rem(20 0);
+        padding-left: rem(140);
+        border-bottom: 1px solid #f2f2f2;
+        flex-direction: column;
+      }
+      .artifacts[data-mode="flip"] & {
+        border: 1px solid $border-color;
+        padding: 0;
+        align-items: normal;
+      }
+    }
+    @include desktop {
+      .artifacts[data-mode="list"] & {
+        width: calc(100% + #{rem(40)});
+        margin-right: rem(-40);
+        flex-direction: row;
+      }
+      .artifacts[data-mode="flip"] & {
+        height: rem(600);
+        flex-direction: row;
+      }
+    }
+    .artifacts[data-mode="grid"] & {
+      width: 100%;
+      border: 1px solid $border-color;
+      margin: rem(15);
+      transition: .12s border-color ease, .12s box-shadow ease;
+      &:hover {
+        border-color: $yellow;
+        box-shadow: rem(0 2 6 0) rgba(0, 0, 0, 0.1)
+      }
+      @include tablet {
+        width: calc((100% / 2) - #{rem(30)});
+      }
+      @include desktop {
+        width: calc((100% / 3) - #{rem(30)});
+      }
+    }
+    @include mobile-only {
+      width: 100%;
+      border: 1px solid $border-color;
+      margin: rem(15);
+      transition: .12s border-color ease, .12s box-shadow ease;
+      &:hover {
+        border-color: $yellow;
+        box-shadow: rem(0 2 6 0) rgba(0, 0, 0, 0.1)
+      }
+    }
+
+    .imgBox {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-color: $border-color;
+      @include tablet {
+        .artifacts[data-mode="list"] & {
+          width: rem(120);
+          height: rem(120);
+          border: 1px solid $border-color;
+          transition: .12s border-color ease;
+          position: absolute;
+          top: rem(20);
+          left: 0;
+          &:hover {
+            border-color: $yellow;
+          }
+        }
+        .artifacts[data-mode="flip"] & {
+          position: relative;
+
+          .actions {
+            position: absolute;
+            top: rem(33);
+            right: rem(30);
+            &:before {
+              content: "";
+              opacity: 0.4;
+              border-radius: rem(16);
+              background-color: #ffffff;
+              top: rem(-4);
+              bottom: rem(-4);
+              left: rem(-14);
+              right: rem(-14);
+              display: block;
+              z-index: 0;
+              position: absolute;
+            }
+          }
+        }
+      }
+      @include desktop {
+        .artifacts[data-mode="flip"] & {
+          border-right: rem(2) solid $border-color;
+          width: 50%;
+          flex-shrink: 0;
+        }
+      }
+      .artifacts[data-mode="grid"] & {
+        max-width: 100%;
+        max-height: rem(200);
+        align-self: center;
+        flex-grow: 1;
+      }
+
+      @include mobile-only {
+        max-width: 100%;
+        max-height: rem(200);
+        align-self: center;
+        flex-grow: 1;
+      }
+
+      a {
+        font-size: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include tablet {
+          .artifacts[data-mode="list"] & {
+            padding: rem(10);
+          }
+        }
+      }
+      img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+    }
+    .name {
+      font-size: rem(16);
+      margin-bottom: rem(12);
+      font-weight: 700;
+      margin-top: rem(20);
+      width: 100%;
+      a {
+        display: inline-block;
+        color: $black;
+        transition: .12s color ease;
+        &:hover {
+          color: $green;
+        }
+      }
+      @include tablet {
+        .artifacts[data-mode="flip"] &,
+        .artifacts[data-mode="list"] & {
+          font-size: rem(24);
+          margin-bottom: rem(15);
+          margin-top: 0;
+          line-height: 1.24;
+        }
+        .artifacts[data-mode="flip"] & {
+
+        }
+      }
+    }
+    .actions {
+      display: flex;
+      align-items: center;
+      > span {
+        cursor: pointer;
+        position: relative;
+        &:hover {
+          .icon {
+            color: $black;
+          }
+        }
+        &:not(:last-of-type) {
+          margin-right: rem(10);
+        }
+      }
+      .icon {
+        font-size: rem(24);
+        color: transparentize($black, .8);
+        transition: .12s color ease;
+        line-height: 0;
+        &.active {
+          color: $green;
+          &.icon-pin:before {
+            content: $icon-pin-selected;
+          }
+          &.icon-market:before {
+            content: $icon-market-selected;
+          }
+          &.icon-share:before {
+            content: $icon-share-selected;
+          }
+        }
+      }
+    }
+    .info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      @include tablet {
+        .artifacts[data-mode="list"] & {
+          width: 100%;
+          max-width: rem(600);
+          flex-shrink:0;
+        }
+        .artifacts[data-mode="flip"] & {
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-start;
+          padding: rem(30 40 40);
+        }
+      }
+      @include desktop {
+        .artifacts[data-mode="flip"] & {
+          width: 50%;
+        }
+      }
+      hr {
+        margin: rem(20 0);
+        background-color: $border-color;
+        height: 1px;
+        display: block;
+        width: 100%;
+        border: none;
+      }
+      .actions {
+        position: relative;
+        @include tablet {
+          .artifacts[data-mode="list"] & {
+            position: absolute;
+            right: 100%;
+            margin-right: rem(26);
+            top: rem(20);
+            flex-direction: column;
+          }
+          .artifacts[data-mode="flip"] & {
+            margin-top: rem(20);
+          }
+        }
+        @include desktop {
+          .artifacts[data-mode="flip"] & {
+            margin-top: auto;
+          }
+        }
+        > span {
+          @include tablet {
+            .artifacts[data-mode="list"] & {
+              &.tooltipTrigger {
+                display: none;
+              }
+            }
+          }
+          &:not(:last-of-type) {
+            @include tablet {
+              .artifacts[data-mode="list"] & {
+                margin-bottom: rem(10);
+              }
+            }
+            .artifacts[data-mode="grid"] & {
+              margin-right: rem(10);
+            }
+            @include mobile-only {
+              margin-right: rem(10);
+            }
+          }
+        }
+        .tooltip {
+          margin-top: 0;
+          margin-left: rem(-10);
+        }
+      }
+      .origin {
+        font-weight: 400;
+        color: $text-color;
+        font-size: rem(14);
+        transition: .12s color ease;
+        &:hover {
+          color: $green;
+        }
+        @include tablet {
+          .artifacts[data-mode="flip"] &,
+          .artifacts[data-mode="list"] & {
+            font-size: rem(16);
+          }
+        }
+      }
+      .description {
+        width: 100%;
+        margin-top: rem(12);
+        font-size: rem(12);
+        font-weight: 300;
+        color: $text-color;
+        line-height: 1.33;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+
+        @include tablet {
+          .artifacts[data-mode="flip"] &,
+          .artifacts[data-mode="list"] & {
+            font-size: rem(14);
+            line-height: 1.43;
+            margin-top: rem(16);
+          }
+        }
+        @include desktop {
+          .artifacts[data-mode="flip"] & {
+            display: block;
+            overflow: visible;
+          }
+        }
+
+      }
+      .attachments {
+        display: none;
+        @include tablet {
+          .artifacts[data-mode="list"] & {
+            display: block;
+            margin-top: rem(24);
+            margin-bottom: rem(2);
+          }
+          .artifacts[data-mode="flip"] & {
+            display: block;
+            margin-top: rem(20);
+          }
+        }
+        a {
+          @extend %link-underline;
+          @extend %link-underline-inverse;
+          font-size: rem(12);
+          display: inline-block;
+          vertical-align: middle;
+          &:hover {
+            + .icon {
+              color: $black;
+            }
+          }
+        }
+        li {
+          display: inline-block;
+          margin-right: rem(10);
+          font-size: 0;
+          @include tablet {
+            .artifacts[data-mode="flip"] & {
+              display: flex;
+              flex-direction: row-reverse;
+              align-items: center;
+              justify-content: flex-end;
+              margin-right: 0;
+              margin-bottom: rem(8);
+            }
+          }
+        }
+        .icon {
+          color: transparentize($black, .8);
+          font-size: rem(24);
+          display: inline-block;
+          line-height: 0;
+          vertical-align: middle;
+          margin-right: rem(5);
+          transition: .12s color ease;
+          margin-top: rem(-5);
+          float: left;
+        }
+      }
+    }
+    .tags {
+      margin: rem(-2);
+      display: flex;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      @include tablet {
+        margin-top: rem(16);
+      }
+      @include desktop {
+        margin-top: rem(-2);
+      }
+      a {
+        margin: rem(2);
+        font-size: 11px;
+        line-height: 1.3;
+        color: $text-color;
+        display: inline-block;
+        background: $light-gray;
+        border-radius: rem(10);
+        padding: rem(3 10);
+        transition: .12s background-color ease;
+        &:hover {
+          background-color: darken($light-gray, 5%);
+        }
+      }
+    }
+    .right {
+      display: none;
+      @include tablet {
+        .artifacts[data-mode="list"] & {
+          display: block;
+
+          padding-top: rem(5);
+          padding-right: rem(60);
+          flex-grow: 1;
+          width: 100%;
+        }
+      }
+      @include desktop {
+        .artifacts[data-mode="list"] & {
+          position: relative;
+          width: auto;
+          margin-left: rem(20);
+        }
+      }
+      .actions {
+        @include tablet {
+          position: absolute;
+          top: rem(63);
+          right: 0;
+        }
+        @include desktop {
+          margin-bottom: rem(50);
+          position: static;
+        }
+      }
+      .positionToggle {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        right: 0;
+        @include tablet {
+          top: rem(20);
+        }
+        @include desktop {
+          top: 0;
+        }
+        a {
+          color: transparentize($black, .6);
+          transition: .12s color ease;
+          display: block;
+          line-height: 1;
+          &:hover {
+            color: transparentize($black, .4);
+          }
+          &.disabled {
+            color: transparentize($black, .9);
+          }
+          &:not(:last-of-type) {
+            margin-right: rem(10);
+          }
+        }
+        .icon {
+          font-size: rem(24);
+          display: block;
+          &.up {
+            transform: rotate(180deg);
+          }
+        }
+      }
+    }
+  }
+}
+.artifactItemsSlider {
+  display: none;
+  position: relative;
+
+}

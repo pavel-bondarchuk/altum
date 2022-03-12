@@ -1,0 +1,162 @@
+.header {
+	background-color: $white;
+	position: relative;
+	z-index: 10000;
+
+	.menu-toggle {
+		@include desktop {
+			display: none;
+		}
+	}
+
+	.inner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		position: relative;
+		height: rem(170);
+		@include desktop {
+			height: rem(108);
+			padding: 0;
+		}
+
+		.left,
+		.right {
+			display: flex;
+
+			.btn_light {
+				display: none;
+				@include desktop {
+					display: flex;
+					align-items: center;
+					justify-content: flex-start;
+				}
+			}
+
+			.lang_switcher {
+				display: none;
+				@include desktop {
+					display: flex;
+					align-items: center;
+					justify-content: flex-start;
+					margin-left: rem(50);
+					padding-right: rem(13);
+					position: relative;
+					li {
+						&:not(.current-lang) {
+							display: none;
+
+							&.active {
+								display: block;
+								position: absolute;
+								top: 100%;
+							}
+						}
+
+						&.current-lang {
+							&:after {
+								content: '';
+								position: absolute;
+								top: calc(50% - 2px);
+								right: 0;
+								width: 8px;
+								height: 4px;
+								background-image: url("data:image/svg+xml,%3Csvg width='10' height='7' viewBox='0 0 10 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23404040' stroke-width='2'/%3E%3C/svg%3E%0A");
+								background-position: center;
+								background-repeat: no-repeat;
+								background-size: cover;
+								cursor: pointer;
+							}
+						}
+
+						a {
+							font-weight: 600;
+							font-size: 14px;
+							line-height: 2;
+							color: $dark-gray;
+							&:hover {
+								color: $green;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.logo {
+			margin-right: rem(100);
+		}
+	}
+
+	.links {
+		display: none;
+		align-items: center;
+		@include desktop {
+			display: flex;
+		}
+
+		.menu-item {
+			position: relative;
+
+			&:not(:last-of-type) {
+				margin-right: rem(50);
+			}
+
+			> a {
+				line-height: 2;
+				letter-spacing: rem(0.34);
+				color: $dark-gray;
+				font-size: rem(14);
+				text-transform: none;
+				font-weight: 600;
+				position: relative;
+				transition: .12s color ease;
+
+				&:after {
+					content: "";
+					position: absolute;
+					bottom: rem(-8);
+					left: 45%;
+					right: 45%;
+					height: 1px;
+					background: transparent;
+					transition: .12s all ease;
+					pointer-events: none;
+				}
+
+				&:before {
+					content: "";
+					position: absolute;
+					left: 0;
+					right: 0;
+					top: 0;
+					bottom: rem(-8);
+				}
+
+				&:hover, &.active {
+					color: $green;
+
+					&:after {
+						background-color: $green;
+						left: 0;
+						right: 0;
+					}
+				}
+
+				&.parent {
+					&:hover, &.active {
+						~ .submenu {
+							transform: translateY(0);
+							opacity: 1;
+							visibility: visible;
+						}
+					}
+				}
+			}
+
+			.submenu {
+				margin-top: rem(29);
+			}
+		}
+	}
+}

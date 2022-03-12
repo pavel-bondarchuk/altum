@@ -1,0 +1,110 @@
+.menuMobile {
+  position: fixed;
+  top: rem(110);
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  background: $white;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  box-shadow: rem(0 2 6 0) rgba(0, 0, 0, 0.1);
+  transition: .3s transform ease;
+  transform: translateX(-100%);
+  padding-top: rem(55);
+  padding-bottom: rem(113);
+  padding-left: rem(20);
+  padding-right: rem(20);
+  &.opened {
+    transform: translateX(0);
+  }
+  @include desktop {
+    display: none;
+  }
+  ::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: rem(2);
+    height: rem(2);
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    padding: rem(20);
+    border-bottom: 1px solid $border-color;
+    font-size: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    img {
+      height: rem(32);
+    }
+  }
+  .links {
+    .menu-item {
+      width: 100%;
+      margin: 0;
+      &:not(:last-of-type) {
+        margin-bottom: rem(40);
+      }
+      > span, > a {
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        font-weight: 600;
+        font-size: rem(18);
+        line-height: 1.4;
+        color: $dark-gray;
+
+        .arrow {
+          line-height: 1.4;
+          color: $gray;
+          display: block;
+          font-size: rem(12);
+          margin-left: auto;
+        }
+        &.active {
+          .arrow {
+            transform: rotate(180deg);
+          }
+          + .list {
+            display: block;
+          }
+        }
+      }
+      .list {
+        display: none;
+        a {
+          display: block;
+          color: $text-color;
+          border-top: 1px solid $border-color;
+          padding: rem(8 20);
+          font-size: rem(14);
+          .icon {
+            font-size: rem(18);
+            display: inline-block;
+            vertical-align: middle;
+            margin-top: rem(-7);
+            margin-right: rem(6);
+            margin-bottom: rem(-2);
+          }
+        }
+      }
+    }
+  }
+  .register {
+    padding: 0;
+    border-top: 1px solid $border-color;
+    margin-top: rem(70);
+    display: flex;
+    flex-direction: column;
+    font-size: 0;
+    a.btn {
+      margin-left: 0;
+      &:not(:last-of-type) {
+        margin-bottom: rem(8);
+      }
+    }
+  }
+}

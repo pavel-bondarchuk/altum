@@ -1,0 +1,40 @@
+.hiddenLg {
+  @include desktop {
+    display: none;
+  }
+}
+.visibleLg {
+  display: none;
+  @include desktop {
+    display: block;
+  }
+}
+.visibleLgInline {
+  display: none;
+  @include desktop {
+    display: inline;
+  }
+}
+.hiddenMd {
+  display: none;
+  @include desktop {
+    display: block;
+  }
+}
+.visibleSm {
+  display: block;
+  @include tablet {
+    display: none;
+  }
+}
+.visibleMd {
+  display: block;
+  @include desktop {
+    display: none;
+  }
+}
+.hiddenSm {
+  @include mobile-only {
+    display: none;
+  }
+}

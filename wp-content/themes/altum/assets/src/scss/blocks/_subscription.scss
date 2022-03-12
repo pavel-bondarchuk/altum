@@ -1,0 +1,88 @@
+.subscription {
+  .inner {
+    padding: rem(60 0 40);
+    .top {
+      .title {
+
+      }
+      .subtitle {
+        font-size: rem(24);
+        font-weight: 200;
+        line-height: 1;
+        margin-bottom: rem(11);
+        strong {
+          font-weight: 400;
+        }
+      }
+    }
+    .plans {
+      margin-top: rem(40);
+      .item {
+        background: $white;
+        border-radius: rem(6);
+        padding: rem(40);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        .title {
+          @extend .pageSubtitle;
+          margin-bottom: rem(10);
+          line-height: 1.24;
+        }
+        .subtitle {
+          font-size: rem(14);
+          color: $text-color;
+          margin-bottom: rem(30);
+          text-transform: uppercase;
+        }
+        .price {
+          font-size: rem(24);
+          font-weight: bold;
+          color: $green;
+          margin-bottom: rem(30);
+        }
+        .list {
+          font-size: rem(16);
+          font-weight: 200;
+          line-height: 1.5;
+          color: $black;
+          margin-bottom: auto;
+          li {
+            position: relative;
+            padding-left: rem(30);
+            &:not(:last-of-type) {
+              margin-bottom: rem(14);
+            }
+            &:before {
+              content: "";
+              width: rem(8);
+              height: rem(8);
+              border-radius: 50%;
+              background: $yellow;
+              position: absolute;
+              left: 0;
+              top: rem(8);
+            }
+          }
+        }
+        .btn {
+          margin-top: rem(35);
+        }
+      }
+    }
+  }
+}
+
+.subscription_page {
+  .inner {
+    padding-top: rem(40);
+    .top {
+      .title {
+        margin-bottom: rem(20);
+      }
+    }
+    .plans {
+      margin-top: rem(30);
+    }
+  }
+}

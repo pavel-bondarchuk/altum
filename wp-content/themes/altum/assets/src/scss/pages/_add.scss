@@ -1,0 +1,187 @@
+.addForm {
+  .inner {
+    padding: rem(40 0);
+    .topBar {
+      margin-bottom: rem(15);
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      align-items: flex-start;
+      @include tablet {
+        align-items: center;
+        flex-direction: row;
+      }
+      > .btn {
+        margin-bottom: rem(12);
+        @include tablet {
+          margin: 0;
+        }
+      }
+      .toggleBox {
+        width: 100%;
+        @include tablet {
+          width: auto;
+        }
+        a {
+          width: 50%;
+          @include tablet {
+            width: rem(110);
+          }
+        }
+      }
+    }
+    .formContainer {
+      .formGrid {
+        @include tablet {
+          max-height: rem(576);
+        }
+        ::-webkit-scrollbar {
+          width: rem(8);
+          height: rem(8);
+        }
+        ::-webkit-scrollbar-track,
+        ::-webkit-scrollbar-thumb {
+          border-radius: rem(10);
+        }
+      }
+      .docsRow {
+        display: flex;
+        align-items: center;
+        position: relative;
+        .btn {
+          padding: 0;
+          width: rem(40);
+          min-width: rem(40);
+          margin-left: rem(10);
+          display: block;
+          &:hover {
+            background: $green;
+            .icon {
+              opacity: 1;
+            }
+          }
+          .icon {
+            font-size: rem(22);
+            opacity: 0.4;
+            line-height: 0;
+            color: $white;
+            transition: .12s opacity ease;
+          }
+        }
+        .lock {
+          width: rem(24);
+          height: rem(24);
+          background: $white;
+          border-radius: 50%;
+          position: absolute;
+          top: rem(-4);
+          right: rem(-4);
+          cursor: pointer;
+          text-align: center;
+          .icon {
+            font-size: rem(16);
+            color: $green;
+          }
+        }
+      }
+
+      .form {
+        max-height: 100%;
+        .formWrapper {
+          position: relative;
+          > .note {
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-size: rem(12);
+            color: $text-color;
+          }
+          > .extra {
+            display: none;
+          }
+          .tooltip {
+            margin-top: -1px;
+            margin-left: 1px;
+          }
+        }
+        &[data-form="full"] {
+          @include tablet {
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding-right: rem(28);
+          }
+          .formWrapper {
+            > .extra {
+              display: block;
+            }
+          }
+        }
+      }
+
+    }
+    .upload {
+
+      margin-top: 25px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      @include tablet {
+        border-radius: rem(6);
+        background-color: #f8f8f8;
+        height: calc(100% - 25px);
+      }
+      .text {
+        font-size: rem(18);
+        color: $text-color;
+        font-weight: 300;
+        line-height: 0.89;
+        margin-bottom: rem(20);
+        display: none;
+        @include tablet {
+          display: block;
+        }
+      }
+      .btn {
+        width: 100%;
+        @include tablet {
+          width: auto;
+        }
+      }
+    }
+  }
+}
+
+.privacySettings {
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  align-self: flex-start;
+  margin-bottom: rem(10);
+  @include tablet {
+    margin-bottom: 0;
+    margin-top: rem(-10);
+  }
+  .label {
+    font-size: rem(12);
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: rem(0.29);
+  }
+  .toggleBox {
+    margin: rem(0 20);
+    .btn {
+      font-size: rem(12);
+      padding: 0;
+      width: rem(30);
+      height: rem(30);
+      line-height: rem(30);
+      margin: 0 !important;
+    }
+  }
+  .link {
+    font-size: rem(14);
+    @extend %link-underline;
+    @extend %link-underline-inverse;
+  }
+}

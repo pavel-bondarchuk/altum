@@ -1,0 +1,61 @@
+.inspirationGallery {
+  .inner {
+    padding: rem(48 0 40);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .title {
+      margin-bottom: rem(20);
+    }
+    .hashtag {
+      font-size: rem(48);
+      font-weight: 200;
+      color: $black;
+      text-transform: uppercase;
+      margin-bottom: rem(34);
+      line-height: 1.24;
+    }
+    .subtitle {
+      margin-bottom: rem(40);
+    }
+    .list {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      margin: rem(-8);
+      @include desktop {
+        margin: rem(-15);
+        padding: rem(0 80);
+      }
+      .item {
+        margin: rem(8);
+        position: relative;
+        width: calc((100% / 2) - #{rem(16)});
+        height: rem(170);
+        @include tablet {
+          width: calc((100% / 3) - #{rem(16)});
+          height: rem(245);
+        }
+        @include desktop {
+          margin: rem(15);
+          width: calc((100% / 3) - #{rem(30)});
+          height: rem(360);
+        }
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+    .btn {
+      margin-top: rem(40);
+    }
+    .text {
+      font-size: rem(14);
+      text-transform: uppercase;
+      color: $text-color;
+      margin-top: rem(30);
+    }
+  }
+}

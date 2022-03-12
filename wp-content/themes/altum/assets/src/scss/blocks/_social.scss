@@ -1,0 +1,68 @@
+.socialSign {
+  margin-bottom: rem(30);
+  .links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    @include tablet {
+      flex-direction: row;
+    }
+    .link {
+      width: 100%;
+      font-size: rem(14);
+      font-weight: 500;
+      position: relative;
+      padding-left: rem(30);
+      text-align: center;
+      color: $text-color;
+      background: $white;
+      height: rem(40);
+      line-height: rem(40);
+      display: block;
+      transition: .12s background-color ease;
+      @include tablet {
+        width: rem(120);
+      }
+      &:hover {
+        background-color: transparentize($green, .9);
+      }
+      &:not(:last-of-type) {
+        margin-bottom: rem(10);
+        @include tablet {
+          margin-bottom: 0;
+          margin-right: rem(10);
+        }
+      }
+      .img {
+        width: rem(18);
+        height: rem(18);
+        left: rem(11);
+        top: 0;
+        bottom: 0;
+
+
+
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: rem(8);
+        margin-top: rem(-4);
+        margin-left: rem(-26);
+        @include tablet {
+          position: absolute;
+          margin: auto;
+        }
+      }
+    }
+  }
+}
+
+.socialShare {
+  @extend .socialSign;
+  .links {
+    justify-content: flex-start;
+    .link {
+      background-color: $light-gray;
+    }
+  }
+}

@@ -1,0 +1,221 @@
+.getToKnow {
+  .inner {
+    padding: rem(34 0 40);
+    .title {
+      margin-bottom: rem(40);
+    }
+  }
+}
+.aboutUs {
+  background: $white;
+  .inner {
+    padding: rem(80 0 40);
+    @include desktop {
+      padding: rem(80 80 40);
+    }
+    .title {
+      margin-bottom: rem(40);
+    }
+    .aboutText {
+      font-size: rem(24);
+      color: $black;
+      line-height: 1.33;
+      margin-bottom: rem(80);
+      max-width: rem(800);
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+
+.quoteBox {
+  display: flex;
+  flex-direction: column;
+  @include tablet {
+    padding: rem(0 80);
+  }
+  @include desktop {
+    flex-direction: row;
+
+  }
+  .quote {
+    background: $white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+    padding: rem(20);
+    @include tablet {
+      padding: rem(40);
+    }
+    .icon {
+      color: $black;
+      font-size: rem(55);
+      margin-bottom: rem(28);
+      line-height: 0;
+      height: rem(42);
+      margin-top: rem(-5);
+    }
+    .text {
+      font-size: rem(24);
+      font-weight: 300;
+      color: $black;
+      font-style: italic;
+      line-height: 1.33;
+      p {
+        &:not(:last-of-type) {
+          margin-bottom: rem(14);
+        }
+      }
+    }
+  }
+  .imgBox {
+    margin-top: rem(30);
+    flex-shrink: 0;
+    font-size: 0;
+    position: relative;
+    @include desktop {
+      margin-top: 0;
+      width: rem(340);
+      margin-left: rem(30);
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+.founders {
+  display: flex;
+  flex-direction: column;
+  @include tablet {
+    margin: rem(0 -10);
+    flex-direction: row;
+  }
+  @include desktop {
+    margin: rem(0 -20);
+  }
+  .founder {
+    background: $white;
+    border-radius: rem(6);
+    border: 1px solid $border-color;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: rem(20);
+    padding: rem(20);
+    @include tablet {
+      padding: rem(20);
+      width: 50%;
+      margin: rem(0 10);
+    }
+    @include desktop {
+      padding: rem(40 40 29);
+      margin: rem(0 20);
+    }
+    .bio {
+      flex-grow: 1;
+      .info {
+        position: relative;
+        height: rem(80);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: rem(100);
+        margin-bottom: rem(20);
+      }
+      .photo {
+        width: rem(80);
+        height: rem(80);
+        border-radius: 50%;
+        overflow: hidden;
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      .name {
+        font-size: rem(24);
+        font-weight: bold;
+        margin-bottom: rem(6);
+        color: $black;
+      }
+      .url {
+        color: $text-color;
+        font-size: rem(12);
+        transition: .12s color ease;
+        align-self: flex-start;
+        &:hover {
+          color: $yellow;
+        }
+      }
+      .text {
+        font-size: rem(16);
+        font-weight: 200;
+        line-height: 1.5;
+        color: $black;
+        margin-bottom: 0;
+        p {
+          &:not(:last-of-type) {
+            margin-bottom: rem(14);
+          }
+        }
+      }
+    }
+    hr {
+      display: block;
+      margin: rem(16 0 21);
+      border: none;
+      height: 1px;
+      width: 100%;
+      background-color: $border-color;
+    }
+    .foundersCollection {
+
+      .items {
+        display: flex;
+        justify-content: space-between;
+        .item {
+          width: rem(94);
+          height: rem(94);
+          border: 1px solid $border-color;
+          display: flex;
+          transition: .12s border-color ease;
+          position: relative;
+          align-items: center;
+          justify-content: center;
+          padding: rem(10);
+          @include desktop {
+            width: rem(130);
+            height: rem(130);
+          }
+          &:hover {
+            border-color: $yellow;
+          }
+          &:after {
+            content: "";
+            @extend .artPoint;
+          }
+          img {
+            max-height: 100%;
+          }
+        }
+      }
+      .text {
+        margin-top: rem(20);
+        color: $text-color;
+        font-size: rem(14);
+        font-weight: 200;
+        line-height: 1.43;
+        min-height: rem(80);
+        margin-bottom: 0;
+      }
+    }
+  }
+}

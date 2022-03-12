@@ -1,0 +1,77 @@
+.signForm {
+  .inner {
+    padding: rem(40 0 86);
+    .title {
+      margin-bottom: rem(22);
+    }
+    .subtitle {
+      font-size: rem(14);
+      color: $text-color;
+      text-transform: uppercase;
+      margin-bottom: rem(30);
+    }
+    .socialSign {
+      .subtitle {
+        margin-bottom: rem(20);
+      }
+    }
+    .form {
+      width: 100%;
+      @include tablet {
+        width: rem(250);
+        margin: auto;
+      }
+      .captcha {
+        font-size: 0;
+      }
+      .btn {
+        width: 100%;
+        margin-top: rem(20);
+      }
+      .inputBox {
+        .label:not(.checkboxLabel) {
+
+          @include tablet {
+            position: absolute;
+            right: 100%;
+            white-space: nowrap;
+            top: 0;
+            bottom: 0;
+            margin-top: auto;
+            margin-bottom: auto;
+            text-align: right;
+            height: rem(15);
+            margin-right: rem(20);
+          }
+          &[for="display_name"] {
+            @include tablet {
+              height: rem(26);
+            }
+          }
+          .note {
+            @include tablet {
+              display: block;
+              margin-left: 0;
+              margin-top: rem(2);
+            }
+          }
+        }
+      }
+      .inputBox_checkbox {
+        margin: rem(20 0 16);
+        .label {
+          margin-bottom: 0;
+        }
+      }
+    }
+    .terms {
+      font-size: rem(12);
+      line-height: 1.8;
+      text-align: center;
+      margin-top: rem(30);
+      a {
+        @extend %link-underline;
+      }
+    }
+  }
+}

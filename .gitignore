@@ -1,0 +1,27 @@
+/*
+!.gitignore
+!README.md
+!package.json
+!gulpfile.js
+!wp-content/
+!.github/
+
+# Ignore everything in the "wp-content" directory, except the "plugins"
+# and "themes" directories.
+wp-content/*
+!wp-content/plugins/
+!wp-content/themes/
+!wp-content/mu-plugins/
+
+# Ignore everything in the "plugins" directory, except the plugins you
+# specify (see the commented-out examples for hints on how to do this.)
+wp-content/plugins/*
+!wp-content/plugins/altum-cpt/
+
+# Ignore everything in the "themes" directory, except the themes you
+# specify (see the commented-out example for a hint on how to do this.)
+wp-content/themes/*
+!wp-content/themes/altum/
+wp-content/themes/altum/node_modules/*
+wp-content/themes/altum/assets/dist/*
+wp-content/themes/altum/package-lock.json

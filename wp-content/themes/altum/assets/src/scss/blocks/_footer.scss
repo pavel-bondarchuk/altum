@@ -1,0 +1,169 @@
+.footer {
+	color: $white;
+	background-color: $light-gray;
+
+	.inner {
+		padding: 40px 20px 32px;
+		@include desktop {
+			padding: 50px 200px 62px;
+		}
+	}
+
+	a:not(.btn) {
+		color: $white;
+		transition: .12s color ease;
+
+		&:hover {
+			color: $yellow;
+		}
+	}
+
+	.title {
+		line-height: 1.25;
+		letter-spacing: rem(0.29);
+		text-transform: uppercase;
+		color: $gray;
+		font-size: rem(12);
+		font-weight: 700;
+		@include tablet {
+			margin-bottom: rem(10);
+		}
+
+		&.parent {
+			border-bottom: 1px solid lighten($dark-gray, 5%);
+			padding: rem(12 16);
+
+			&:after {
+				content: $icon-arrow-down-bold;
+				@extend %icon-font;
+				line-height: 1;
+				float: right;
+				@include tablet {
+					display: none;
+				}
+			}
+
+			&.active {
+				&:after {
+					line-height: 1.5;
+					transform: rotate(180deg);
+				}
+
+				+ .links {
+					display: block !important;
+				}
+			}
+
+			@include tablet {
+				padding: 0;
+				padding-right: rem(8);
+				border: none;
+			}
+		}
+	}
+
+	.top {
+		background-color: $light-gray;
+		display: flex;
+		justify-content: space-between;
+		align-content: center;
+		padding: 0;
+		flex-direction: column;
+		@include desktop {
+			padding-bottom: rem(100);
+			flex-direction: row;
+		}
+
+		.logo {
+			height: rem(60);
+			display: flex;
+			justify-content: center;
+			margin-bottom: rem(30);
+			@include desktop {
+				margin-bottom: 0;
+			}
+
+			img {
+				height: 100%;
+			}
+		}
+
+		.links {
+			@include desktop {
+				flex-direction: row;
+			}
+			line-height: 2.2;
+			font-size: rem(13);
+			font-weight: 600;
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+			border: none;
+			padding: 0;
+
+			div {
+				margin: 0 0 15px;
+				@include desktop {
+					margin-bottom: 0;
+				}
+
+				&:not(:last-of-type) {
+					@include desktop {
+						margin-right: rem(55);
+					}
+				}
+
+				a {
+					padding: 0;
+					display: block;
+					color: $dark-gray;
+					@include tablet {
+						display: inline;
+					}
+
+					br {
+						display: none;
+						@include tablet {
+							display: block;
+						}
+					}
+				}
+			}
+		}
+
+		.btn_icon {
+			justify-content: center;
+		}
+
+	}
+
+	.bottom {
+		background: $light-gray;
+		font-size: rem(14);
+		line-height: 1.21;
+
+
+		.inner {
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+			justify-content: center;
+			text-align: center;
+			@include tablet {
+				justify-content: space-between;
+				flex-direction: column;
+				text-align: left;
+			}
+		}
+
+		.links {
+			a {
+				margin: rem(0 2);
+
+				&:last-of-type {
+					margin-right: 0;
+				}
+			}
+		}
+	}
+}

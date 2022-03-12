@@ -1,0 +1,36 @@
+@import "variables";
+@import "icons/variables";
+
+//@include font-face($font-rooney,'#{$fontsPath}/RooneySans/RooneySansHeavy/RooneySans-Heavy', 900, normal, eot woff ttf svg)
+
+@font-face {
+  font-family: '#{$icomoon-font-family}';
+  src:
+          url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?sp93en') format('truetype'),
+          url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?sp93en') format('woff'),
+          url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?sp93en##{$icomoon-font-family}') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+%icon-font {
+  font-family: '#{$icomoon-font-family}' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  @extend %icon-font;
+}
+
+@import "icons/style";

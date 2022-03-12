@@ -1,0 +1,23 @@
+.latestSlider {
+  background: $white;
+  .inner {
+    padding: rem(40 80 60);
+    .title {
+      margin-bottom: rem(34);
+    }
+    .slider {
+      position: relative;
+      .sliderNext,
+      .sliderPrev {
+        top: rem(57);
+        bottom: auto;
+      }
+      .sliderNext {
+        margin-left: rem(20);
+      }
+      .sliderPrev {
+        margin-right: rem(20);
+      }
+    }
+  }
+}
