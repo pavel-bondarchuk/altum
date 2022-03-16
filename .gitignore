@@ -5,6 +5,7 @@
 !gulpfile.js
 !wp-content/
 !.github/
+!*.sql
 
 # Ignore everything in the "wp-content" directory, except the "plugins"
 # and "themes" directories.
