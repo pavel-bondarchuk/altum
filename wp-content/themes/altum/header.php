@@ -61,7 +61,13 @@
             </div>
             <div class="right">
                 <a href="#" class="btn btn_light">Register</a>
-                <ul class="lang_switcher"><?php pll_the_languages(); ?></ul>
+                <ul class="lang_switcher">
+                  <?php
+                  if ( function_exists('pll_the_languages') ) {
+						pll_the_languages();
+                  }
+                  ?>
+                </ul>
             </div>
             <button class="menu-toggle hamburger hamburger--slider" type="button" aria-controls="primary-menu"
                     aria-expanded="false">
