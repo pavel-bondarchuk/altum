@@ -94,8 +94,8 @@ function altum_setup() {
 	add_theme_support(
 			'custom-logo',
 			array(
-					'height'               => 46,
-					'width'                => 99,
+					'height'               => 31,
+					'width'                => 31,
 					'flex-width'           => true,
 					'flex-height'          => true,
 					'header-text'          => array( 'site-title', 'site-description' ),
